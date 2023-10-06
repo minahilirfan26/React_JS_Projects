@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+:root {
+	--open-sans: 'Open Sans', sans-serif;
+	--raleway: 'Raleway', sans-serif;
+
+	--primary: #F89805;
+	--secondary: #6154A3;
+	--light-primary: #EEFFD9;
+	--light-secondary: #DED8FF;
+	--yellow: #F89805;
+	--grey: #787878;
+}
+body{
+    font-family: var(--open-sans);
+}
+
+.container {
+	max-width: 1200px;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	padding: 0 16px;
+}
+
+
+/* NAVBAR */
+nav {
+	height: 64px;
+	position: sticky;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	z-index: 999;
+    border-bottom: 1px solid var(--yellow);
+}
+nav .container {
+	display: flex;
+	align-items: center;
+	grid-gap: 36px;
+}
+nav .brand {
+	font-size: 24px;
+	font-weight: 700;
+	font-family: var(--raleway);
+	color: #000;
+}
+nav .nav-menu {
+	display: flex;
+	flex-grow: 1;
+	align-items: center;
+	grid-gap: 20px;
+}
+nav .nav-menu a {
+	color: #000;
+	transition: all .3s ease;
+}
+nav .nav-menu a:hover {
+	color: var(--primary);
+}
+nav .login {
+	margin-left: auto;
+}
+nav .login a {
+	padding: 10px 30px;
+	display: inline-block;
+	border: 1px solid var(--secondary);
+	border-radius: 6px;
+	color: var(--secondary);
+}
+nav .login a:hover {
+	background: var(--secondary);
+	color: #fff;
+}
+nav .signup a {
+	padding: 10px 30px;
+	display: inline-block;
+	background: var(--primary);
+	color: #fff;
+	border-radius: 6px;
+}
+nav .signup a:hover {
+	color: #fff;
+}
+
+.close-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px 30px;
+    cursor: pointer;
+    display: none;
+
+}
+.close-btn span{
+    font-size: 35px;
+}
+
+.btn-toggle{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 12px 30px;
+    cursor: pointer;
+    transition: .4s ease-in;
+    display: none;
+}
+.btn-toggle span{
+    font-size: 35px;
+}
+.btn-toggle:hover span{
+    color: var(--primary);
+}
+
+/* NAVBAR */
+
+@media screen and (max-width: 1200px) {
+	.container {
+		max-width: 991px;
+	}
+    
+	.close-btn,.btn-toggle{
+        display: block;
+    }
+	
+	nav .nav-menu {
+		position: fixed;
+		top: 0;
+		left: -100%;
+		width: 240px;
+		height: 100%;
+		flex-direction: column;
+		align-items: flex-start;
+		grid-gap: 14px;
+		padding: 16px;
+		z-index: 100;
+		transition: all .3s ease;
+	}
+	nav .nav-menu.show {
+		left: 0;
+	}
+	nav .login {
+		margin-left: unset;
+	}
+	nav .nav-menu::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0);
+		pointer-events: none;
+		transition: all .3s ease;
+		z-index: -2;
+	}
+	nav .nav-menu.show::before {
+		pointer-events: visible;
+		background: rgba(0, 0, 0, .5);
+	}
+	nav .nav-menu::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		background: #fff;
+	}
+
+}
+
+@media screen and (max-width: 991px) {
+	.container {
+		max-width: 768px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.container {
+		max-width: 576px;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.container {
+		max-width: 100%;
+	}
+}
