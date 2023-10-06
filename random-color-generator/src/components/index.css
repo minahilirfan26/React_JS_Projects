@@ -1,0 +1,21 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+.color-container{
+    width: 90%;
+    margin: auto;
+}
+.color-container div{
+    float: left;
+    margin: 1px auto;
+}
+.color{
+    height: 120px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
